@@ -23,3 +23,8 @@ PRODUCT_MODEL := VirtIO x86_64
 PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=$(PRODUCT_MANUFACTURER) \
     ro.soc.model=$(PRODUCT_DEVICE)
+
+# 第三方应用替换 / 预装。
+# 必须放在所有 inherit-product 之后：extra.mk 需要从已汇总的 PRODUCT_PACKAGES
+# 里剔除 Etar / Jelly / Contacts，再追加替代应用。
+$(call inherit-product, vendor/extra/extra.mk)

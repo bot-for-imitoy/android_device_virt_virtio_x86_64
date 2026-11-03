@@ -21,6 +21,13 @@ PRODUCT_COPY_FILES += \
 # Kernel (Prebuilt)
 TARGET_PREBUILT_KERNEL_ARCH := x86_64
 
+# KernelSU-Next
+# Kernel side is compiled in through configs/kernel/kernelsu.config; this is the
+# manager UI, imported presigned so the kernel's manager-certificate check
+# (KernelSU-Next/kernel/Kbuild EXPECTED_MANAGER_HASH) keeps matching.
+PRODUCT_PACKAGES += \
+    KernelSU-Next
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
